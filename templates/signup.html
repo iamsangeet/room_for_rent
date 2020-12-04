@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+
+{% block 'title' %} Signup {% endblock %}
+
+{% block 'body' %}
+
+ <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+              {% include 'component/message.html' %}
+            <div class="p-5">
+              <form class="user" method="post">
+                 {% csrf_token %}
+                <div class="form-group">
+                  <input type="username" name="username" class="form-control form-control-user" id="username" placeholder="Type your username" required="">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" class="form-control form-control-user" id="email" placeholder="Type your email" required="">
+                </div>
+                  <div class="form-group">
+                  <input type="password" name="pass1" class="form-control form-control-user" id="pass1" placeholder="Type your password" required="">
+                </div>
+                <div class="form-group">
+                    <input type="password" name="pass2" class="form-control form-control-user" id="pass2" placeholder="Re-type your password" required="">
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Signup
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+  </div>
+
+{% endblock %}

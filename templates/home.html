@@ -1,0 +1,37 @@
+{% extends 'base/base.html' %}
+
+{% block 'title' %} Room For Rent{% endblock %}
+
+{% block 'body' %}
+
+
+<div class="container">
+    <hr>
+    {% for r in room %}
+    <div class ="row">
+        <div class="col-md-4">
+            <br>
+            {% if r.image %}
+             <img src="{{MEDIA_URL}}{{r.image.url}}" style="width:300px;height:auto;">
+            {% endif %}
+
+        </div>
+        <div class="col-md-8">
+        <h2>{{r.title}}</h2>
+            <h5>{{r.category}} | {{r.publish_date}}</h5>
+            <br>
+            <span>Price: Rs. {{r.price}} /month</span>
+            <br/>
+            <span>No. of rooms: {{r.no_of_rooms}}</span>
+            <br>
+            <span>Location: {{r.location}}</span>
+            <br>
+            <a href="{% url 'views_more' r.id %}" class="btn btn-primary">View more</a>
+        </div>
+    </div>
+    <hr>
+    <br>
+    {% endfor %}
+</div>
+
+{% endblock %}
